@@ -24,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         emaill = (EditText) findViewById(R.id.email);
         passwordd = (EditText) findViewById(R.id.pass);
-        mAuth.signOut();
-    if(mAuth.getCurrentUser()!=null)
-            Toast.makeText(this, "Logged in as: " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+//        mAuth.signOut();
+    if(mAuth.getCurrentUser()!=null) {
+        startActivity(new Intent(MainActivity.this, Main.class));
+        Toast.makeText(this, "Logged in as: " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+    }
     }
 
     public void signin(View view){

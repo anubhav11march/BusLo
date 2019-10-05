@@ -32,7 +32,7 @@ public class Homie extends Fragment implements View.OnClickListener {
 
 
     public void clicked(View view){
-        Fragment fragment = new Rides();
+        Fragment fragment = new Buses();
         if(fragment!=null) {
             FragmentTransaction ft = getFragmentManager().beginTransaction();
             ft.replace(R.id.fragmentFrame, fragment);
