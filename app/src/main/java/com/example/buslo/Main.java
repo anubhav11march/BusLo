@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.Gravity;
 import android.view.View;
 
 import androidx.core.view.GravityCompat;
@@ -18,6 +19,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 
@@ -45,6 +48,7 @@ public class Main extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        displayFragment(R.id.nav_home);
     }
 
     @Override
@@ -83,20 +87,33 @@ public class Main extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
-        int id = item.getItemId();
+        displayFragment(item.getItemId());
+        return true;
+    }
 
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
+    private void displayFragment(int itemId){
+        Fragment fragment = null;
+        switch (itemId){
+            case R.id.nav_home:
+                fragment = new Homie();
+                break;
+            case R.id.nav_rides:
+                fragment = new Rides();
+                break;
+            case R.id.nav_rewards:
+                fragment = new Rewards();
+                break;
+//            case R.id.nav_help:
+//                fragment = new Menu4();
+//                break;
+        }
+        if ((fragment!=null)){
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragmentFrame, fragment);
+            ft.commit();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.closeDrawer(GravityCompat.START);
     }
 }
