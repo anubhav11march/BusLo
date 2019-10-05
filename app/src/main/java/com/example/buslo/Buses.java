@@ -3,6 +3,7 @@ package com.example.buslo;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.time.LocalDateTime;
+
 public class Buses extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -38,6 +42,7 @@ public class Buses extends Fragment {
     LinearLayout invi;
     private String mParam1;
     private String mParam2;
+    private ImageView locimage;
 
     private OnFragmentInteractionListener mListener;
 
@@ -79,6 +84,7 @@ public class Buses extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_buses, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        locimage = (ImageView) view.findViewById(R.id.location) ;
         stops = (TextView) view.findViewById(R.id.stops);
         vieww  = view;
         invi = (LinearLayout) view.findViewById(R.id.invi);
@@ -124,6 +130,17 @@ public class Buses extends Fragment {
                                     }
                                 });
 
+                    }
+                });
+                locimage = (ImageView) holder.mView.findViewById(R.id.location);
+                locimage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(), Location.class);
+                        intent.putExtra("lat", model.getLat());
+                        intent.putExtra("lon", model.getLon());
+                        intent.putExtra("busno", busno);
+                        startActivity(intent);
                     }
                 });
             }
