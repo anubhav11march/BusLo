@@ -59,25 +59,30 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/stopsButt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="285dp"
-        android:layout_marginEnd="30dp"
+
         android:layout_marginStart="30dp"
         android:layout_marginTop="125dp"
+        android:layout_marginEnd="30dp"
         android:background="@drawable/butt"
+
         android:fontFamily="@font/capriola"
         android:onClick="allStops"
         android:paddingLeft="80dp"
         android:paddingRight="50dp"
+
         android:text="See all stops"
         android:textColor="@color/blue"
-        android:textSize="20dp"
+        android:textSize="40sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-  android:id="@+id/stopsButt"
+
         app:layout_constraintTop_toBottomOf="@+id/busesButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
