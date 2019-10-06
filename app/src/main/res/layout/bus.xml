@@ -77,9 +77,9 @@
                 android:layout_width="100dp"
                 android:layout_margin="10dp"
                 android:layout_height="150dp"
+                android:id="@+id/buyy"
                 android:layout_gravity="right"
                 android:src="@drawable/buy"
-
                 android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
