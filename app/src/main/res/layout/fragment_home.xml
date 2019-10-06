@@ -16,7 +16,7 @@
         android:layout_marginTop="16dp"
         android:paddingLeft="80dp"
         android:paddingRight="50dp"
-        android:text="Where To, today?"
+        android:text="Where To, Today?"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="32sp"
         android:textStyle="bold"
