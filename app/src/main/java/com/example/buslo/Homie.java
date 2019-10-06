@@ -3,8 +3,10 @@ package com.example.buslo;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,12 +16,21 @@ import androidx.fragment.app.FragmentTransaction;
 public class Homie extends Fragment implements View.OnClickListener {
 
     TextView buses;
+    AutoCompleteTextView acTV;
+
+    String inputs[]={"Prashant Vihar","Rohini Court Subway","Madhuban Chowk","Pitampura Metro","Kohat","ND Block","Netaji Subhash Place"};
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         buses = (TextView) v.findViewById(R.id.busesButton);
+
+        acTV =(AutoCompleteTextView) v.findViewById(R.id.autocomp) ;
         buses.setOnClickListener(this);
+
+        ArrayAdapter<String> adapter=new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,inputs);
+        acTV.setAdapter(adapter);
         return v;
     }
 
