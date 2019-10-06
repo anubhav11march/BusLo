@@ -39,10 +39,11 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Signed in as: " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
-                    finish();}
+                    finish();
+                    startActivity(new Intent(MainActivity.this, Home.class));}
                 else
                     Toast.makeText(getApplicationContext(), "Signed in failed", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(MainActivity.this, Home.class));
+
             }
         });
     }
