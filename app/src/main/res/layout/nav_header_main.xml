@@ -23,9 +23,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/faster_one"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Bus-Lo"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="35sp"
+        android:textColor="@color/green"/>
 
 
 </LinearLayout>
