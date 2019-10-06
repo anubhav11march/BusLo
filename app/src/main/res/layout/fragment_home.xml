@@ -72,10 +72,12 @@
         android:paddingRight="50dp"
         android:text="See all stops"
         android:textColor="@color/blue"
-        android:textSize="40sp"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
+  android:id="@+id/stopsButt"
         app:layout_constraintTop_toBottomOf="@+id/busesButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

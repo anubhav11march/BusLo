@@ -1,5 +1,6 @@
 package com.example.buslo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,11 +15,12 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 public class Homie extends Fragment implements View.OnClickListener {
-
-    TextView buses;
     AutoCompleteTextView acTV;
 
     String inputs[]={"Prashant Vihar","Rohini Court Subway","Madhuban Chowk","Pitampura Metro","Kohat","ND Block","Netaji Subhash Place"};
+
+
+    TextView buses, stops;
 
     @Nullable
     @Override
@@ -28,9 +30,11 @@ public class Homie extends Fragment implements View.OnClickListener {
 
         acTV =(AutoCompleteTextView) v.findViewById(R.id.autocomp) ;
         buses.setOnClickListener(this);
-
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,inputs);
         acTV.setAdapter(adapter);
+
+        stops = (TextView) v.findViewById(R.id.stopsButt);
+        stops.setOnClickListener(this);
         return v;
     }
 
@@ -39,7 +43,6 @@ public class Homie extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Home");
     }
-
 
 
     public void clicked(View view){
@@ -51,11 +54,19 @@ public class Homie extends Fragment implements View.OnClickListener {
         }
     }
 
+    public void stops(View view){
+        startActivity(new Intent(getContext(), Bus_Stops.class));
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.busesButton:
                 clicked(view);
+                break;
+            case R.id.stopsButt:
+                stops(view);
+                break;
         }
     }
 }

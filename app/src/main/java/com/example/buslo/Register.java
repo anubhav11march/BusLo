@@ -35,6 +35,7 @@ public class Register extends AppCompatActivity {
                 if(task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "User created", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(Register.this, Home.class));
+                    finish();
                 }
                 else
                     Toast.makeText(getApplicationContext(), "Signed in failed", Toast.LENGTH_SHORT).show();

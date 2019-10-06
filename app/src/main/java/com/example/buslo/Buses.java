@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -42,7 +43,7 @@ public class Buses extends Fragment {
     LinearLayout invi;
     private String mParam1;
     private String mParam2;
-    private ImageView locimage;
+    private ImageView locimage, buyImage;
 
     private OnFragmentInteractionListener mListener;
 
@@ -84,6 +85,7 @@ public class Buses extends Fragment {
 
         View view= inflater.inflate(R.layout.fragment_buses, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+        buyImage = (ImageView) view.findViewById(R.id.buyy);
         locimage = (ImageView) view.findViewById(R.id.location) ;
         stops = (TextView) view.findViewById(R.id.stops);
         vieww  = view;
@@ -140,6 +142,17 @@ public class Buses extends Fragment {
                         intent.putExtra("lat", model.getLat());
                         intent.putExtra("lon", model.getLon());
                         intent.putExtra("busno", busno);
+                        startActivity(intent);
+                    }
+                });
+                buyImage = (ImageView) holder.mView.findViewById(R.id.buyy);
+                buyImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(getContext(), Ticket.class);
+                        intent.putExtra("busno", busno);
+                        intent.putExtra("kms", model.getRoutedistance());
+                        intent.putExtra("route", model.getStops());
                         startActivity(intent);
                     }
                 });
