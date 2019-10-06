@@ -1,5 +1,6 @@
 package com.example.buslo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +14,15 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class Homie extends Fragment implements View.OnClickListener {
 
-    TextView buses;
+    TextView buses, stops;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         buses = (TextView) v.findViewById(R.id.busesButton);
         buses.setOnClickListener(this);
+        stops = (TextView) v.findViewById(R.id.stopsButt);
+        stops.setOnClickListener(this);
         return v;
     }
 
@@ -28,7 +31,6 @@ public class Homie extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         getActivity().setTitle("Home");
     }
-
 
 
     public void clicked(View view){
@@ -40,11 +42,19 @@ public class Homie extends Fragment implements View.OnClickListener {
         }
     }
 
+    public void stops(View view){
+        startActivity(new Intent(getContext(), Bus_Stops.class));
+    }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.busesButton:
                 clicked(view);
+                break;
+            case R.id.stopsButt:
+                stops(view);
+                break;
         }
     }
 }

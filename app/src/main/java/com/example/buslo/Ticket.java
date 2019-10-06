@@ -17,6 +17,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.database.core.view.View;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Ticket extends AppCompatActivity {
     TextView busnoo, routee, fare;
     FirebaseAuth mAuth;
@@ -30,7 +33,7 @@ public class Ticket extends AppCompatActivity {
         setContentView(R.layout.activity_ticket);
         Bundle bundle = getIntent().getExtras();
         final String kms = bundle.getString("kms");
-        String busno = bundle.getString("busno");
+        final String busno = bundle.getString("busno");
         mAuth = FirebaseAuth.getInstance();
         buyyy = (Button) findViewById(R.id.buyyyy);
         final String route = bundle.getString("route");
@@ -82,6 +85,20 @@ public class Ticket extends AppCompatActivity {
                         }
                         mref.child(userId).child("noOfRides").setValue(y+"");
                         Toast.makeText(getApplicationContext(), "Ticket Bought Successfully", Toast.LENGTH_SHORT).show();
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YY");
+                        Date date = new Date();
+                        mref.child(userId).child("Rides").child(y+"").child("Date").setValue(sdf.format(date));
+                        mref.child(userId).child("Rides").child(y+"").child("Bus No").setValue(busno);
+                        if(y%5==1 && y>2){
+                            mref.child(userId).child("Rides").child(y+"").child("Fare").setValue("0");
+
+                            Intent inet = new Intent(Ticket.this, QrCode.class);
+                            inet.putExtra("money", "0");
+                            startActivity(inet);
+                            return;
+                        }
+                        mref.child(userId).child("Rides").child(y+"").child("Fare").setValue(Integer.parseInt(kms)*2+"");
+
                         Intent inet = new Intent(Ticket.this, QrCode.class);
                         inet.putExtra("money", Integer.parseInt(kms)*2+"");
                         startActivity(inet);

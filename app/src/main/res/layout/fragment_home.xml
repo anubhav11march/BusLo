@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:text="See all bus stops"
         android:onClick="allStops"
+        android:id="@+id/stopsButt"
         android:layout_marginTop="20dp"
         android:textSize="20dp"/>
 </LinearLayout>
