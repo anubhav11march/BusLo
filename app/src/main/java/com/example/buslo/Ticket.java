@@ -3,6 +3,7 @@ package com.example.buslo;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,7 +29,7 @@ public class Ticket extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket);
         Bundle bundle = getIntent().getExtras();
-        String kms = bundle.getString("kms");
+        final String kms = bundle.getString("kms");
         String busno = bundle.getString("busno");
         mAuth = FirebaseAuth.getInstance();
         buyyy = (Button) findViewById(R.id.buyyyy);
@@ -81,6 +82,9 @@ public class Ticket extends AppCompatActivity {
                         }
                         mref.child(userId).child("noOfRides").setValue(y+"");
                         Toast.makeText(getApplicationContext(), "Ticket Bought Successfully", Toast.LENGTH_SHORT).show();
+                        Intent inet = new Intent(Ticket.this, QrCode.class);
+                        inet.putExtra("money", Integer.parseInt(kms)*2+"");
+                        startActivity(inet);
                     }
 
                     @Override

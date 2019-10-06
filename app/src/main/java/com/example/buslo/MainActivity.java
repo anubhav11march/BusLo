@@ -37,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
+                if(task.isSuccessful()){
                     Toast.makeText(getApplicationContext(), "Signed in as: " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
+                    finish();}
                 else
                     Toast.makeText(getApplicationContext(), "Signed in failed", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, Home.class));
