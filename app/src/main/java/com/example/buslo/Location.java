@@ -63,7 +63,7 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
         mMap.clear();
         mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lon)).snippet("Current Position of Bus").icon(bitmap));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(lat, lon)));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
     }
 
     @Override
@@ -75,6 +75,6 @@ public class Location extends FragmentActivity implements OnMapReadyCallback {
 
         mMap.addMarker(new MarkerOptions().position(sydney).snippet("Current Position of bus").icon(bitmap));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.moveCamera(CameraUpdateFactory.zoomTo(13));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
     }
 }
