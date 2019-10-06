@@ -1,19 +1,29 @@
 package com.example.buslo;
 
 public class Bus {
-    private String avgtime, cap, lat, lon, lstart, occ, routedistance, stops;
+    private String avgtime, cap, lat, lon, lstart, occ, routedistance, stops, status;
     public Bus(){
 
     }
 
-    public Bus(String avgtime, String cap, String lat, String lon, String lstart, String occ, String routedistance, String stops){
+    public Bus(String avgtime, String cap, String lat, String lon, String lstart, String occ, String routedistance, String stops, String status){
         this.avgtime = avgtime;
         this.cap = cap;
         this.lon = lon;
+        this.status =status;
         this.lat = lat;
         this.lstart = lstart;
         this.occ = occ;
+
         this.routedistance = routedistance;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getStops() {

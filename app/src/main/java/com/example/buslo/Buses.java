@@ -67,6 +67,7 @@ public class Buses extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -79,6 +80,7 @@ public class Buses extends Fragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         Query query = FirebaseDatabase.getInstance()
                 .getReference()
                 .child("Bus");
@@ -109,7 +111,7 @@ public class Buses extends Fragment {
             protected void onBindViewHolder(@NonNull final BusViewHolder holder, int position, @NonNull final Bus model) {
                 final String busno = getRef(position).getKey();
                 holder.setavgspeed(model.getAvgtime());
-                holder.setcap(model.getCap());
+                holder.setcap(model.getStatus());
                 holder.setocc(model.getOcc());
                 holder.setbusno(busno);
                 Log.v("AAA", busno);
@@ -186,7 +188,7 @@ public class Buses extends Fragment {
         }
         public void setcap(String avgtime){
             TextView avgtimee = (TextView) mView.findViewById(R.id.cap);
-            avgtimee.setText("Seating Capacity: " + avgtime);
+            avgtimee.setText("Status: " + avgtime);
         }
 
         public void setRoute(final String route, String busno){
