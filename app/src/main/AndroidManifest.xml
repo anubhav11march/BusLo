@@ -29,6 +29,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".Location"
@@ -37,7 +40,8 @@
             android:name=".Main"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Home" />
+        <activity android:name=".Home"
+            android:theme="@style/AppTheme.home"/>
         <activity android:name=".Register" />
         <activity android:name=".MainActivity">
             <intent-filter>
