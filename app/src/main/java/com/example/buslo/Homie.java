@@ -27,11 +27,8 @@ public class Homie extends Fragment implements View.OnClickListener {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         buses = (TextView) v.findViewById(R.id.busesButton);
-
-        acTV =(AutoCompleteTextView) v.findViewById(R.id.autocomp) ;
         buses.setOnClickListener(this);
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getContext(),android.R.layout.simple_list_item_1,inputs);
-        acTV.setAdapter(adapter);
 
         stops = (TextView) v.findViewById(R.id.stopsButt);
         stops.setOnClickListener(this);

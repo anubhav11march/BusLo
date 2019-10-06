@@ -25,26 +25,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <AutoCompleteTextView
-        android:id="@+id/autocomp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="51dp"
-        android:completionThreshold="1"
-        android:hint="ENTER DESTINATION"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+    <!--<AutoCompleteTextView-->
+        <!--android:id="@+id/autocomp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="15dp"-->
+        <!--android:layout_marginTop="51dp"-->
+        <!--android:completionThreshold="1"-->
+        <!--android:hint="ENTER DESTINATION"-->
+        <!--android:textSize="20sp"-->
+        <!--android:textStyle="italic"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/textView" />-->
 
     <TextView
         android:id="@+id/busesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="46dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginEnd="46dp"
         android:background="@drawable/butt"
         android:fontFamily="@font/capriola"
         android:onClick="allBuses"
@@ -56,7 +56,7 @@
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/autocomp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:layout_width="wrap_content"
