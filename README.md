@@ -1,5 +1,5 @@
 # BusLo
-App for Innerve hack
+App for Bhopal Smart City Hack
 
 Main User App: https://github.com/anubhav11march/BusLo
 
